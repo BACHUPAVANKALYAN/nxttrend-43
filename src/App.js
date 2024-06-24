@@ -16,6 +16,7 @@ class App extends Component {
   state = {
     cartList: [],
   }
+
   removeAllCartItems = () => {
     this.setState({cartList: []})
   }
@@ -50,6 +51,7 @@ class App extends Component {
       this.removeCartItem(id)
     }
   }
+
   removeCartItem = id => {
     const cartList = this.state
     const updatedCartList = cartList.filter(

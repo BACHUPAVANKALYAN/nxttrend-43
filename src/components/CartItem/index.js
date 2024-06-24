@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import {BsPlusSquare, BsDashSquare} from 'react-icons/bs'
 import {AiFillCloseCircle} from 'react-icons/ai'
 
@@ -16,15 +17,12 @@ const CartItem = props => (
 
       const {cartItemDetails} = props
       const {id, title, brand, quantity, price, imageUrl} = cartItemDetails
-
       const onClickDecrement = () => {
         decrementCartItemQuantity(id)
       }
-
       const onClickIncrement = () => {
         incrementCartItemQuantity(id)
       }
-
       const onRemoveCartItem = () => {
         removeCartItem(id)
       }
@@ -40,16 +38,26 @@ const CartItem = props => (
               <p className="cart-product-brand">by {brand}</p>
             </div>
             <div className="cart-quantity-container">
-              <button type="button" className="quantity-controller-button">
+              <button
+                type="button"
+                className="quantity-controller-button"
+                data-testid="minus"
+                onClick={onClickDecrement}
+              >
                 <BsDashSquare color="#52606D" size={12} />
               </button>
               <p className="cart-quantity">{quantity}</p>
-              <button type="button" className="quantity-controller-button">
+              <button
+                type="button"
+                className="quantity-controller-button"
+                data-testid="plus"
+                onClick={onClickIncrement}
+              >
                 <BsPlusSquare color="#52606D" size={12} />
               </button>
             </div>
             <div className="total-price-remove-container">
-              <p className="cart-total-price">Rs {price * quantity}/-</p>
+              <p className="cart-total-price">Rs {totalPrice}/-</p>
               <button
                 className="remove-button"
                 type="button"
