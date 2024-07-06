@@ -7,6 +7,7 @@ const CartSummary = () => (
   <CartContext.Consumer>
     {value => {
       const {cartList} = value
+
       let total = 0
       cartList.forEach(eachItem => {
         total += eachItem.price * eachItem.quantity

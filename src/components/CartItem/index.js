@@ -16,7 +16,9 @@ const CartItem = props => (
       } = value
 
       const {cartItemDetails} = props
+
       const {id, title, brand, quantity, price, imageUrl} = cartItemDetails
+
       const onClickDecrement = () => {
         decrementCartItemQuantity(id)
       }

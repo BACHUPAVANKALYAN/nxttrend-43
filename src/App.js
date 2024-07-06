@@ -41,7 +41,7 @@ class App extends Component {
       this.setState(prevState => ({
         cartList: prevState.cartList.map(eachCartItem => {
           if (id === eachCartItem.id) {
-            const updatedQuantity = eachCartItem.quantity + 1
+            const updatedQuantity = eachCartItem.quantity - 1
             return {...eachCartItem, quantity: updatedQuantity}
           }
           return eachCartItem
@@ -53,7 +53,8 @@ class App extends Component {
   }
 
   removeCartItem = id => {
-    const cartList = this.state
+    const {cartList} = this.state
+
     const updatedCartList = cartList.filter(
       eachCartItem => eachCartItem.id !== id,
     )
